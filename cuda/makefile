@@ -1,13 +1,13 @@
 OLD  := MMult_cuBLAS_1
 #NEW  := MMult_cuBLAS_1
-NEW := MMult_cuda_3
-SMS ?= 70 75 80 86
+NEW := MMult_cuda_21
+SMS ?= 80
 
 #
 # sample makefile
 #
 
-CC         := nvcc 
+CC         := /usr/local/cuda-11/bin/nvcc
 LINKER     := $(CC)
 #CFLAGS     := -O0 -g -Wall
 $(foreach sm,$(SMS),$(eval GENCODE_FLAGS += -gencode arch=compute_$(sm),code=sm_$(sm)))
