@@ -12,8 +12,12 @@
 template <int BLOCK>
 __global__ void sgemm(int m, int n, int k, float *a, int lda, float *b, int ldb,
                       float *c, int ldc) {
-    int current_m = blockIdx.x * BLOCK + threadIdx.x;
-    int current_n = blockIdx.y * BLOCK + threadIdx.y;
+    int tx = threadIdx.x;
+    int ty = threadIdx.y;
+    int bx = blockIdx.x;
+    int by = blockIdx.y;
+    float * begin_a = a + bx * BLOCK + tx;
+    i
     if (current_m < m && current_n < n) {
         float sum = 0;
         for (int i = 0; i < k; i++) {
