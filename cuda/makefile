@@ -1,6 +1,6 @@
 OLD  := MMult_cuBLAS_1
 #NEW  := MMult_cuBLAS_1
-NEW := MMult_cuda_21
+NEW := MMult_cuda_22
 SMS ?= 80
 
 #
